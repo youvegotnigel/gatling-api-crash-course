@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "NFS 2024",
+    "releaseDate": "2023-01-21 23:59:59",
+    "reviewScore": 44,
+    "category": "Driving",
+    "rating": "Universal"
+  },
+  {
+    "id": 2,
+    "name": "Gran Turismo",
+    "releaseDate": "2024-04-25 23:59:59",
+    "reviewScore": 37,
+    "category": "Driving",
+    "rating": "Universal"
+  },
+  {
+    "id": 3,
+    "name": "God of War",
+    "releaseDate": "2023-09-19 23:59:59",
+    "reviewScore": 76,
+    "category": "Adventure",
+    "rating": "Universal"
+  },
+  {
+    "id": 4,
+    "name": "GTA 5",
+    "releaseDate": "2023-10-27 23:59:59",
+    "reviewScore": 51,
+    "category": "Shooter",
+    "rating": "Universal"
+  },
+  {
+    "id": 5,
+    "name": "NFS 2017",
+    "releaseDate": "2024-02-25 23:59:59",
+    "reviewScore": 86,
+    "category": "Driving",
+    "rating": "Universal"
+  },
+  {
+    "id": 6,
+    "name": "It Takes Two",
+    "releaseDate": "2024-06-11 23:59:59",
+    "reviewScore": 0,
+    "category": "Puzzle",
+    "rating": "Universal"
+  },
+  {
+    "id": 7,
+    "name": "GTA 6",
+    "releaseDate": "2023-04-01 23:59:59",
+    "reviewScore": 84,
+    "category": "Adventure",
+    "rating": "Universal"
+  },
+  {
+    "id": 8,
+    "name": "Mass Effect 3",
+    "releaseDate": "2024-04-25 23:59:59",
+    "reviewScore": 91,
+    "category": "Shooting",
+    "rating": "Mature"
+  },
+  {
+    "id": 9,
+    "name": "Mortal Kombat",
+    "releaseDate": "2023-03-15 23:59:59",
+    "reviewScore": 18,
+    "category": "Fighting",
+    "rating": "Mature"
+  },
+  {
+    "id": 10,
+    "name": "Taxi Driver",
+    "releaseDate": "2023-02-28 23:59:59",
+    "reviewScore": 47,
+    "category": "Driving",
+    "rating": "Mature"
+  }
+]
