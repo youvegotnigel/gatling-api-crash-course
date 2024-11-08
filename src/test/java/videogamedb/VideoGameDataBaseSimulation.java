@@ -20,6 +20,10 @@ public class VideoGameDataBaseSimulation extends Simulation {
     private static final int USER_COUNT = Integer.parseInt(System.getProperty("USERS", "5"));
     private static final int RAMP_DURATION = Integer.parseInt(System.getProperty("RAMP_DURATION", "10"));
 
+    // FEEDER FOR TEST DATA
+    private static FeederBuilder.FileBased<Object> jsonFeeder = jsonFile("data/gameJsonFile.json").random();
+
+
     // BEFORE CALLS
     @Override
     public void before() {
@@ -43,7 +47,8 @@ public class VideoGameDataBaseSimulation extends Simulation {
 
 
     private static ChainBuilder createNewGame =
-            exec(http("Create New Game")
+            feed(jsonFeeder)
+                    .exec(http("Create New Game - #{name}")
                     .post("/api/videogame")
                     .header("Authorization", "Bearer #{jwtToken}")
                     .body(ElFileBody("bodies/newGameTemplate.json")).asJson()
@@ -51,15 +56,17 @@ public class VideoGameDataBaseSimulation extends Simulation {
 
 
     private static ChainBuilder getLastPostedGame =
-            exec(http("Get Last Posted Game")
-                    .get("/api/videogame/1")
+            exec(http("Get Last Posted Game - #{name}")
+                    .get("/api/videogame/#{id}")
+                    .check(jmesPath("name").isEL("#{name}"))
             );
 
 
     private static ChainBuilder deleteLastPostedGame =
-            exec(http("Delete Last Posted Game")
-                    .delete("/api/videogame/1")
+            exec(http("Delete Last Posted Game - #{name}")
+                    .delete("/api/videogame/#{id}")
                     .header("Authorization", "Bearer #{jwtToken}")
+                    .check(bodyString().is("Video game deleted"))
             );
 
     // Scenario Definition
