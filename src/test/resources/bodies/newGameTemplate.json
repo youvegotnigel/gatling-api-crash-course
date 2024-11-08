@@ -1,7 +1,8 @@
 {
-  "category": "Platform",
-  "name": "Mario",
-  "rating": "Mature",
-  "releaseDate": "2012-05-04",
-  "reviewScore": 85
+  "id": #{id},
+  "category": "#{category}",
+  "name": "#{name}",
+  "rating": "#{rating}",
+  "releaseDate": "${releaseDate}",
+  "reviewScore": #{reviewScore}
 }
