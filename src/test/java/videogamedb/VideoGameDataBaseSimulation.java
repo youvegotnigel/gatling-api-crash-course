@@ -21,7 +21,7 @@ public class VideoGameDataBaseSimulation extends Simulation {
     private static final int RAMP_DURATION = Integer.parseInt(System.getProperty("RAMP_DURATION", "10"));
 
     // FEEDER FOR TEST DATA
-    private static FeederBuilder.FileBased<Object> jsonFeeder = jsonFile("data/gameJsonFile.json").random();
+    private static final FeederBuilder.FileBased<Object> jsonFeeder = jsonFile("data/gameJsonFile.json").random();
 
 
     // BEFORE CALLS
@@ -32,7 +32,7 @@ public class VideoGameDataBaseSimulation extends Simulation {
     }
 
     // HTTP CALLS
-    private static ChainBuilder getAllGames = exec(http("Get all games")
+    private static final ChainBuilder getAllGames = exec(http("Get all games")
                                                 .get("/api/videogame"));
 
     private static ChainBuilder authenticate =
@@ -46,7 +46,7 @@ public class VideoGameDataBaseSimulation extends Simulation {
             );
 
 
-    private static ChainBuilder createNewGame =
+    private static final ChainBuilder createNewGame =
             feed(jsonFeeder)
                     .exec(http("Create New Game - #{name}")
                     .post("/api/videogame")
@@ -55,14 +55,14 @@ public class VideoGameDataBaseSimulation extends Simulation {
             );
 
 
-    private static ChainBuilder getLastPostedGame =
+    private static final ChainBuilder getLastPostedGame =
             exec(http("Get Last Posted Game - #{name}")
                     .get("/api/videogame/#{id}")
                     .check(jmesPath("name").isEL("#{name}"))
             );
 
 
-    private static ChainBuilder deleteLastPostedGame =
+    private static final ChainBuilder deleteLastPostedGame =
             exec(http("Delete Last Posted Game - #{name}")
                     .delete("/api/videogame/#{id}")
                     .header("Authorization", "Bearer #{jwtToken}")
@@ -75,7 +75,7 @@ public class VideoGameDataBaseSimulation extends Simulation {
     // 3. Create a new game
     // 4. Get details of newly created game
     // 5. Delete newly created game
-    private ScenarioBuilder scenarioBuilder = scenario("Video Game DB Stress Test")
+    private final ScenarioBuilder scenarioBuilder = scenario("Video Game DB Stress Test")
             .exec(getAllGames)
             .pause(2)
             .exec(authenticate)
